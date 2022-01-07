@@ -1,0 +1,13 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	font-family: sans-serif;
+	justify-content: center;
+	width: 100vw;
+}

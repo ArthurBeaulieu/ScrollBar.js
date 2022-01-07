@@ -13,8 +13,8 @@
     "dictionaries": ["jsdoc", "closure"]
   },
   "templates": {
-    "name": "COMPONENT",
-    "footerText": "COMPONENT",
+    "name": "ScrollBar.js",
+    "footerText": "ScrollBar.js",
     "cleverLinks": false,
     "monospaceLinks": false
   },

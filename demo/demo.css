@@ -11,3 +11,17 @@ body {
 	justify-content: center;
 	width: 100vw;
 }
+
+.vertical {
+	border: solid 1px black;
+	height: 150px;
+	margin: 2rem;
+	width: 150px;
+}
+
+.horizontal {
+	border: solid 1px black;
+	height: 150px;
+	margin: 2rem;
+	width: 150px;
+}

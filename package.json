@@ -1,9 +1,9 @@
 {
-  "name": "COMPONENT",
-  "version": "PROJECT_VERSION",
-  "description": "DESCRIPTION",
+  "name": "ScrollBar.js",
+  "version": "0.0.1",
+  "Horizontal": "Horizontal",
   "keywords": [],
-  "main": "src/js/COMPONENT.js",
+  "main": "src/js/ScrollBar.js",
   "scripts": {
     "build": "webpack --config webpack/webpack.prod.js",
     "watch": "webpack --watch --config webpack/webpack.dev.js",
@@ -13,16 +13,16 @@
     "doc": "jsdoc -c doc/jsDoc.json",
     "beforecommit": "npm run test && npm run doc && npm run build"
   },
-  "homepage": "https://github.com/USERNAME/COMPONENT/README.md",
+  "homepage": "https://github.com/ArthurBeaulieu/ScrollBar.js/README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/USERNAME/COMPONENT.git"
+    "url": "git+https://github.com/ArthurBeaulieu/ScrollBar.js.git"
   },
   "bugs": {
-    "url": "https://github.com/USERNAME/COMPONENT/issues"
+    "url": "https://github.com/ArthurBeaulieu/ScrollBar.js/issues"
   },
-  "author": "USERNAME",
-  "license": "PROJECT_LICENSE",
+  "author": "ArthurBeaulieu",
+  "license": "GPL-3.0",
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",

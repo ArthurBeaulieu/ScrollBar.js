@@ -10,7 +10,7 @@ class ScrollBar {
   /**
    * @summary Custom JavaScript ScrollBar for any conatiner
    * @author Arthur Beaulieu
-   * @since September 2018
+   * @since January 2022
    * @description Build a custom ScrollBar according to the given DOM target, inspired from https://github.com/buzinas/simple-scrollbar <3
    * @param {object} options - The ScrollBar options
    * @param {object} options.target - The DOM node to add a ScrollBar to
@@ -40,7 +40,7 @@ class ScrollBar {
    * @private
    * @memberof ScrollBar
    * @author Arthur Beaulieu
-   * @since September 2018
+   * @since January 2022
    * @description Build DOM hierrarchy, ScrollBar double wraps the content to append its custom bar
    **/
   _init() {
@@ -84,14 +84,13 @@ class ScrollBar {
    * @private
    * @memberof ScrollBar
    * @author Arthur Beaulieu
-   * @since September 2018
+   * @since January 2022
    * @description Handle ScrollBar mouse events
    **/
   _events() {
     window.addEventListener('resize', this._updateScrollBar.bind(this));
     this._container.addEventListener('scroll', this._updateScrollBar.bind(this));
     this._container.addEventListener('mouseenter', this._updateScrollBar.bind(this));
-//    this._container.addEventListener('mousemove', this._updateScrollBar.bind(this));
     this._bar.addEventListener('mousedown', this._barClicked.bind(this));
   }
 
@@ -102,7 +101,7 @@ class ScrollBar {
    * @private
    * @memberof ScrollBar
    * @author Arthur Beaulieu
-   * @since September 2018
+   * @since January 2022
    * @description Handle the drag animation of the bar
    * @param {object} event - The Mouse event from this._events()
    **/
@@ -129,7 +128,7 @@ class ScrollBar {
    * @private
    * @memberof ScrollBar
    * @author Arthur Beaulieu
-   * @since September 2018
+   * @since January 2022
    * @description Add document events when bar is clicked to track the mouse movement in parent
    * @param {object} event - The Mouse event from this._events()
    **/
@@ -156,7 +155,7 @@ class ScrollBar {
    * @private
    * @memberof ScrollBar
    * @author Arthur Beaulieu
-   * @since September 2018
+   * @since January 2022
    * @description Remove document events when bar is released
    **/
   _stopDrag() {
@@ -173,7 +172,7 @@ class ScrollBar {
    * @private
    * @memberof ScrollBar
    * @author Arthur Beaulieu
-   * @since September 2018
+   * @since January 2022
    * @description Compute bar position according to DOM measurements
    **/
   _updateScrollBar() {
@@ -181,7 +180,6 @@ class ScrollBar {
       const totalWidth = this._container.scrollWidth;
       const ownWidth = this._container.clientWidth;
       const bottom = (this._target.clientHeight - this._bar.clientHeight) * -1;
-
       this._scrollRatio = ownWidth / totalWidth;
       requestAnimationFrame(() => {
         if (this._scrollRatio >= 1) { // Hide scrollbar if no scrolling is possible
@@ -204,7 +202,6 @@ class ScrollBar {
       const totalHeight = this._container.scrollHeight;
       const ownHeight = this._container.clientHeight;
       const right = (this._target.clientWidth - this._bar.clientWidth) * -1;
-
       this._scrollRatio = ownHeight / totalHeight;
       requestAnimationFrame(() => {
         if (this._scrollRatio >= 1) { // Hide scrollbar if no scrolling is possible
@@ -212,7 +209,6 @@ class ScrollBar {
         } else {
           const height = (Math.max(this._scrollRatio * 100, MAX_SIZE) * ownHeight) / 100;
           let top = ((this._container.scrollTop / totalHeight) * 100) * ownHeight / 100;
-
           if (Math.max(this._scrollRatio * 100, MAX_SIZE) === MAX_SIZE) { // ScrollBar has reached its minimum size
             /* Here is a complex thing : scroll total height != DOM node total height. We must substract
             a growing percentage (as user goes down) that is scaled after total scroll progress in %. */
@@ -231,6 +227,15 @@ class ScrollBar {
   //  --------------------------------  PUBLIC METHODS  --------------------------------  //
 
 
+  /**
+   * @method
+   * @name update
+   * @public
+   * @memberof ScrollBar
+   * @author Arthur Beaulieu
+   * @since January 2022
+   * @description Manually update the scrollbar
+   **/  
   update() {
     this._updateScrollBar();
   }

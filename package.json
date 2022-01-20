@@ -1,6 +1,6 @@
 {
   "name": "ScrollBar.js",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "Horizontal": "Horizontal",
   "keywords": [],
   "main": "src/js/ScrollBar.js",

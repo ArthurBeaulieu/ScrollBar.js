@@ -1,0 +1,20 @@
+/**
+   * @class
+   * @constructor
+   * @summary Custom JavaScript ScrollBar for any conatiner
+   * @author Arthur Beaulieu
+   * @since January 2022
+   * @licence GPL-v3.0
+   * @description Build a custom ScrollBar according to the given DOM target, inspired from https://github.com/buzinas/simple-scrollbar <3
+   * @param {Object} options - The ScrollBar options
+   * @param {Object} options.target - The DOM node to add a ScrollBar to
+   * @param {Boolean} [options.horizontal=false] - The scrollbar direction, default to vertical
+   * @param {Number} [options.minSize=15] - The minimal scrollbar size in pixels
+   * @param {Object} [options.style] - The scrollbar style to apply
+   * @param {String} [options.style.color='rgb(155, 155, 155)'] - The CSS color
+   * @param {String} [options.style.size='10px'] - The scrollbar with or height in px depending on horizontal flag
+   * @param {String} [options.style.radius='5px'] - The border radius in px, by default is half the scrollbar width
+   * @param {String} [options.style.lowOpacity='.2'] - The scrollbar opacity when not hovered
+   * @param {String} [options.style.highOpacity='.8'] - The scrollbar opacity when hovered
+   * @param {String} [options.style.transitionDuration='.2'] - The opacity transition duration in seconds
+   **/

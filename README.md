@@ -27,4 +27,4 @@ If you clone this repository, you can `npm install` to install development depen
 
 To avoid CORS when locally loading the example HTML file, run the web server. Please do not use it on a production environment. Unit tests are performed on both Firefox and Chrome ; ensure you have both installed before running tests, otherwise they might fail.
 
-ScrollBar.js 0.1.0 - GPL-3.0 - ArthurBeaulieu
+ScrollBar.js 0.1.1 - GPL-3.0 - ArthurBeaulieu

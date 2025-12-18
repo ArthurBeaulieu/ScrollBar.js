@@ -10,8 +10,8 @@ const CSSLoader = {
     {
       loader: MiniCssExtractPlugin.loader,
       options: {
-        publicPath: path.resolve(__dirname, '../dist/')
-      }
+        publicPath: '/dist/'
+      },
     },
     {
       loader: 'css-loader',

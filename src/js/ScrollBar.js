@@ -88,7 +88,8 @@ class ScrollBar {
     // Component initialization sequence
     this._init()
       .then(this._events.bind(this))
-      .then(this._updateScrollBar.bind(this));
+      .then(this._updateScrollBar.bind(this))
+      .catch(err => console.error(err));
   }
 
 
@@ -164,7 +165,8 @@ class ScrollBar {
       // Listen to window events or container/scrollbar events
       window.addEventListener('resize', this._updateScrollBar.bind(this));
       this._container.addEventListener('scroll', this._updateScrollBar.bind(this));
-      this._container.addEventListener('mouseenter', this._updateScrollBar.bind(this));
+      this._container.addEventListener('mouseenter', this._mouseEnter.bind(this));
+      this._container.addEventListener('mouseleave', this._mouseLeave.bind(this));
       this._bar.addEventListener('mousedown', this._barClicked.bind(this));
       // Scrollbar is now ready to be used
       resolve();
@@ -173,7 +175,7 @@ class ScrollBar {
 
 
   // ======================================================================== //
-  // ----------------------- Dragging mouse events -------------------------- //
+  // ---------------------------- Mouse events ------------------------------ //
   // ======================================================================== //
 
 
@@ -248,11 +250,45 @@ class ScrollBar {
   }
 
 
+  /**
+   * @method
+   * @name _mouseEnter
+   * @private
+   * @memberof ScrollBar
+   * @author Arthur Beaulieu
+   * @since December 2025
+   * @description Calback when mouse leaves the scrollbar container
+   * @param {Object} event - The MouseEnter event
+   **/
+  _mouseEnter(event) {
+    event.preventDefault();
+    this._target.classList.add('hovered');
+    this._updateScrollBar();
+  }
+
+
+  /**
+   * @method
+   * @name _mouseLeave
+   * @private
+   * @memberof ScrollBar
+   * @author Arthur Beaulieu
+   * @since December 2025
+   * @description Calback when mouse leaves the scrollbar container
+   * @param {Object} event - The MouseLeave event
+   **/
+  _mouseLeave(event) {
+    event.preventDefault();
+    this._target.classList.remove('hovered');
+    this._updateScrollBar();
+  }
+
+
   // ======================================================================== //
   // ----------------- Internal size and position update -------------------- //
   // ======================================================================== //
-
-
+  
+  
   /**
    * @method
    * @name _updateScrollBar
@@ -271,6 +307,15 @@ class ScrollBar {
   }
 
 
+  /**
+   * @method
+   * @name _updateHorizontalScroll
+   * @private
+   * @memberof ScrollBar
+   * @author Arthur Beaulieu
+   * @since January 2022
+   * @description Compute horizontal bar position according to DOM measurements
+   **/
   _updateHorizontalScroll() {
     const totalWidth = this._container.scrollWidth;
     const ownWidth = this._container.clientWidth;
@@ -300,6 +345,15 @@ class ScrollBar {
   }
 
 
+  /**
+   * @method
+   * @name _updateVerticalScroll
+   * @private
+   * @memberof ScrollBar
+   * @author Arthur Beaulieu
+   * @since January 2022
+   * @description Compute vertical bar position according to DOM measurements
+   **/
   _updateVerticalScroll() {
     const totalHeight = this._container.scrollHeight;
     const ownHeight = this._container.clientHeight;
@@ -345,6 +399,20 @@ class ScrollBar {
    **/
   updateScrollbar() {
     this._updateScrollBar();
+  }
+
+
+  /**
+   * @method
+   * @name isHidden
+   * @public
+   * @memberof ScrollBar
+   * @author Arthur Beaulieu
+   * @since December 2025
+   * @description The scrollbar visibility status
+   **/
+  isHidden() {
+    return this._bar.classList.contains('hidden');
   }
 
 

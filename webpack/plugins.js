@@ -19,7 +19,7 @@ const StyleLintPlugin = new _StyleLintPlugin({
 
 const ESLintPlugin = new _ESLintPlugin({
   overrideConfigFile: path.resolve(__dirname, '.eslintrc'),
-  context: path.resolve(__dirname, '../src/js/'),
+  context: path.resolve(__dirname, '../src/js'),
   files: '**/*.js'
 });
 
